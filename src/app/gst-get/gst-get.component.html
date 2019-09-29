@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <input class="form-control" type="text" placeholder="search" aria-label="search">
+            <table class="table">
+                <thead class="thead-white">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Owner</th>
+                        <th scope="col">Company Name</th>
+                        <th scope="col">GST Number</th>
+                        <th scope="col">Action</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let data of Bisnis">
+                        <td>{{data._id}}</td>
+                        <td>{{data.person_name}}</td>
+                        <td>{{data.business_name}}</td>
+                        <td>{{data.business_gst_number}}</td>
+                        <td>
+
+                            <a routerLink="/business/show" class="btn btn-primary">Show</a>
+                        </td>
+                        <td>
+                            <a (click)="deleteBusiness(data._id)" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+            <button routerLink="/business/create" class="btn btn-primary">+Add New</button>
+            <button (click)="refresh()" class="btn btn-secondary">Refresh</button>
+        </div>
+    </div>
